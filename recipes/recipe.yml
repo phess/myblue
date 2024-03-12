@@ -1,7 +1,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: template
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: phess's customized uBlue image. Make your own! https://github.com/blue-build/template
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
@@ -17,10 +17,36 @@ modules:
 
   - type: rpm-ostree
     repos:
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
     install:
-      # - micro
-      # - starship
+      - at
+      - distrobox
+      - gnome-shell-extension-user-theme
+      - gnome-tweaks
+      - iptraf-ng
+      - krb5-workstation
+      - libvirt-daemon
+      - libvirt-daemon-driver-network
+      - libvirt-daemon-driver-nodedev
+      - libvirt-daemon-driver-qemu
+      - libvirt-daemon-driver-storage
+      - qemu-kvm
+      - nmap
+      - openssl
+      - pam-u2f
+      - pamu2fcfg
+      - ripgrep
+      - strace
+      - sysstat
+      - systemd-container
+      - tailscale
+      - tcpdump
+      - tlp
+      - tmux
+      - yaru-theme
+      - https://prerelease.keybase.io/keybase_amd64.rpm
+      - vim-default-editor
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
@@ -35,9 +61,75 @@ modules:
       # repo-name: flathub
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        # - org.mozilla.firefox
-        # - org.gnome.Loupe
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
+        # Security, privacy
+        - com.bitwarden.desktop
+        - com.github.tchx84.Flatseal
+        - org.gnome.seahorse.Application
+        - org.wireshark.Wireshark
+        # Web browsers
+        - org.signal.Signal
+        - org.mozilla.firefox
+        - com.github.Eloston.UngoogledChromium
+        - com.github.Eloston.UngoogledChromium.Codecs
+        - io.gitlab.librewolf-community
+        # Video Conferencing
+        - com.bluejeans.BlueJeans
+        # Audio
+        - com.spotify.Client
+        - com.github.wwmm.easyeffects
+        - de.haeckerfelix.Shortwave
+        - org.gnome.Podcasts
+        - org.rncbc.qpwgraph
+        - org.gnome.SoundRecorder
+        # PDF editors
+        - com.github.jeromerobert.pdfarranger
+        - com.github.junrrein.PDFSlicer
+        # Video and picture
+        - com.github.maoschanz.drawing
+        - com.obsproject.Studio
+        - org.videolan.VLC
+        ### Handbrake DVD ripper and video transcoder
+        - fr.handbrake.ghb
+        # Virt and remote desktop access
+        - org.gnome.Boxes
+        - org.gnome.Boxes.Extension.OsinfoDb
+        - org.remmina.Remmina
+        # Fonts
+        - org.gustavoperedo.FontDownloader
+        # Comms, IM
+        - com.slack.Slack
+        # Games, fun
+        - com.dosbox.DOSBox
+    fedora-flatpak:
+      repo-url: oci+https://registry.fedoraproject.org
+      repo-name: fedora-curated
+      repo-title: "Fedora flatpaks (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
+      install:
+        - org.fedoraproject.MediaWriter
+        - org.geany.Geany
+        - org.gimp.GIMP
+        - org.gnome.baobab
+        - org.gnome.Calculator
+        - org.gnome.Calendar
+        - org.gnome.Characters
+        - org.gnome.Cheese
+        - org.gnome.clocks
+        - org.gnome.Connections
+        - org.gnome.eog
+        - org.gnome.Epiphany
+        - org.gnome.Evince
+        - org.gnome.Extensions
+        - org.gnome.FileRoller
+        - org.gnome.font-viewer
+        - org.inkscape.Inkscape
+        - org.gnome.Logs
+        - org.gnome.Maps
+        - org.gnome.Meld
+        - org.gnome.Screenshot
+        ### Sushi
+        - org.gnome.NautilusPreviewer
+        - org.gnome.Weather
+
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
       # only normal flatpak applications are (like Floorp Lightning web browser in this example).
       # Installing different branches of the same Flatpak is not supported.
