@@ -45,7 +45,7 @@ modules:
       - tlp
       - tmux
       - yaru-theme
-      - https://prerelease.keybase.io/keybase_amd64.rpm
+      #- https://prerelease.keybase.io/keybase_amd64.rpm
       - vim-default-editor
     remove:
       - nano-default-editor
