@@ -1,5 +1,5 @@
 # image will be published to ghcr.io/<user>/<name>
-name: template
+name: orangeblue
 # description will be included in the image's metadata
 description: phess's customized uBlue image. Make your own! https://github.com/blue-build/template
 
