@@ -145,8 +145,12 @@ modules:
 
   - type: script
     snippets:
-      - "sed -i 's/^pool/#ANOTHERPOOL\n#pool/' /etc/chrony.conf"
-      - "for ntpnumber in 0 2; do for country in ca br; do sed -i \"/^#ANOTHERPOOL/s,#,pool ${ntpnumber}.${country}.pool.ntp.org\n#,\" /etc/chrony.conf; done; done"
+      - "sed -i '/^pool/s,^,#,' /etc/chrony.conf"
+      - "sed -i '/^#pool/d' /etc/chrony.conf"
+      - "sed -i '3s,^,pool 0.ca.pool.ntp.org\n,' /etc/chrony.conf"
+      - "sed -i '3s,^,pool 2.ca.pool.ntp.org\n,' /etc/chrony.conf"
+      - "sed -i '3s,^,pool 0.br.pool.ntp.org\n,' /etc/chrony.conf"
+      - "sed -i '3s,^,pool 2.br.pool.ntp.org\n,' /etc/chrony.conf"
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
