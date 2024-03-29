@@ -16,11 +16,6 @@ modules:
                   # put configuration files you want in /etc/ on a booted system 
                   # in /usr/etc/ in the image. read more in files module reference.
 
-  - type: script
-    snippets:
-      - "curl -o /tmp/keybase_amd64.rpm https://prerelease.keybase.io/keybase_amd64.rpm"
-      - "rpm-ostree install /tmp/keybase_amd64.rpm"
-
   - type: rpm-ostree
     repos:
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -52,7 +47,6 @@ modules:
       - tmux
       - yaru-theme
       #- https://prerelease.keybase.io/keybase_amd64.rpm
-      #- /tmp/keybase_amd64.rpm
       - vim-default-editor
       - git
     remove:
