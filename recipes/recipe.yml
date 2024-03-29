@@ -47,8 +47,14 @@ modules:
       - yaru-theme
       #- https://prerelease.keybase.io/keybase_amd64.rpm
       - vim-default-editor
+      - git
     remove:
       - nano-default-editor
+
+  - type: script
+    snippets:
+      - "curl -O /tmp/keybase_amd64.rpm https://prerelease.keybase.io/keybase_amd64.rpm"
+      - "rpm-ostree install /tmp/keybase_amd64.rpm"
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
@@ -97,7 +103,10 @@ modules:
         - com.slack.Slack
         # Games, fun
         - com.dosbox.DOSBox
-    fedora-flatpak:
+
+  - type: default-flatpaks
+    notify: true # Send notification after install/uninstall is finished (true/false)
+    system:
       repo-url: oci+https://registry.fedoraproject.org
       repo-name: fedora-curated
       repo-title: "Fedora flatpaks (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
