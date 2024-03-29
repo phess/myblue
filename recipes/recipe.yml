@@ -144,12 +144,6 @@ modules:
 
   - type: script
     snippets:
-      # Keep `mkdir -p` as this `-p` prevents `mkdir` from failing if the directory already exists.
-      - "mkdir -p /etc/systemd/user/basic.target.wants"
-      - "ln -s /usr/lib/systemd/user/systemd-tmpfiles-setup.service /etc/systemd/user/basic.target.wants/systemd-tmpfiles-setup.service"
-
-  - type: script
-    snippets:
       - "sed -i 's/^pool/#ANOTHERPOOL\n#pool/' /etc/chrony.conf"
       - "for ntpnumber in 0 2; do for country in ca br; do sed -i \"/^#ANOTHERPOOL/s,#,pool ${ntpnumber}.${country}.pool.ntp.org\n#,\" /etc/chrony.conf; done; done"
 
