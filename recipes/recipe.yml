@@ -49,6 +49,7 @@ modules:
       #- https://prerelease.keybase.io/keybase_amd64.rpm
       - vim-default-editor
       - git
+      - duperemove
     remove:
       - nano-default-editor
 
@@ -137,20 +138,6 @@ modules:
       # Installing different branches of the same Flatpak is not supported.
       remove:
       # - org.gnome.eog
-
-  - type: script
-    snippets:
-      - "authselect select sssd --trace"
-      - "authselect enable-feature with-pam-u2f --trace"
-
-  - type: script
-    snippets:
-      - "sed -i '/^pool/s,^,#,' /etc/chrony.conf"
-      - "sed -i '/^#pool/d' /etc/chrony.conf"
-      - "sed -i '3s,^,pool 0.ca.pool.ntp.org\n,' /etc/chrony.conf"
-      - "sed -i '3s,^,pool 2.ca.pool.ntp.org\n,' /etc/chrony.conf"
-      - "sed -i '3s,^,pool 0.br.pool.ntp.org\n,' /etc/chrony.conf"
-      - "sed -i '3s,^,pool 2.br.pool.ntp.org\n,' /etc/chrony.conf"
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
