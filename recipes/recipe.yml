@@ -1,5 +1,5 @@
 # image will be published to ghcr.io/<user>/<name>
-name: orangenblue
+name: orangenbluetvbox
 # description will be included in the image's metadata
 description: phess's customized uBlue image. Make your own! https://github.com/blue-build/template
 
@@ -24,34 +24,34 @@ modules:
     install:
       - at
       - distrobox
-      - gnome-shell-extension-user-theme
-      - gnome-tweaks
-      - iptraf-ng
-      - krb5-workstation
-      - libvirt-daemon
-      - libvirt-daemon-driver-network
-      - libvirt-daemon-driver-nodedev
-      - libvirt-daemon-driver-qemu
-      - libvirt-daemon-driver-storage
-      - qemu-kvm
-      - nmap
-      - openssl
-      - pam-u2f
-      - pamu2fcfg
-      - ripgrep
-      - strace
-      - sysstat
-      - systemd-container
-      - tailscale
-      - tcpdump
-      - tlp
-      - tmux
-      - yaru-theme
-      #- https://prerelease.keybase.io/keybase_amd64.rpm
-      #- keybase
-      - vim-default-editor
-      - git
-      - duperemove
+      #- gnome-shell-extension-user-theme
+      #- gnome-tweaks
+      #- iptraf-ng
+      #- krb5-workstation
+      #- libvirt-daemon
+      #- libvirt-daemon-driver-network
+      #- libvirt-daemon-driver-nodedev
+      #- libvirt-daemon-driver-qemu
+      #- libvirt-daemon-driver-storage
+      #- qemu-kvm
+      #- nmap
+      #- openssl
+      #- pam-u2f
+      #- pamu2fcfg
+      #- ripgrep
+      #- strace
+      #- sysstat
+      #- systemd-container
+      #- tailscale
+      #- tcpdump
+      #- tlp
+      #- tmux
+      #- yaru-theme
+      ##- https://prerelease.keybase.io/keybase_amd64.rpm
+      ##- keybase
+      #- vim-default-editor
+      #- git
+      #- duperemove
     remove:
       - nano-default-editor
 
