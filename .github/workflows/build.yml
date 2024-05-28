@@ -8,6 +8,9 @@ on:
       - "**.md"
       
   pull_request:
+    #branches:
+    #  - main
+    #  - tvbox
   workflow_dispatch: # allow manually triggering builds
 jobs:
   bluebuild:
@@ -33,27 +36,3 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           ref: main
-
-  bluebuild_tvbox:
-    name: Build tvbox Image
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
-    strategy:
-      fail-fast: false # stop GH from cancelling all matrix builds if one fails
-      matrix:
-        recipe:
-          # !! Add your recipes here 
-          - recipe.yml
-    steps:
-       # the build is fully handled by the reusable github action
-      - name: Build tvbox Image
-        uses: blue-build/github-action@v1.5
-        with:
-          recipe: ${{ matrix.recipe }}
-          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
-          registry_token: ${{ github.token }}
-          pr_event_number: ${{ github.event.number }}
-          ref: tvbox
