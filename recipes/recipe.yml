@@ -38,6 +38,7 @@ modules:
       - openssl
       - pam-u2f
       - pamu2fcfg
+      - ptyxis
       - ripgrep
       - strace
       - sysstat
@@ -54,6 +55,7 @@ modules:
       - duperemove
     remove:
       - nano-default-editor
+      - gnome-terminal
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
