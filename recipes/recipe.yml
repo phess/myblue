@@ -17,7 +17,7 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      #- https://pkgs.tailscale.com/stable/fedora/tailscale.repo  ## Fedora repos contain the tailscale RPM since Fedora 41
       #- http://74.208.233.22:8880/keybase.repo
       # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
     install:
@@ -55,8 +55,8 @@ modules:
       - duperemove
     remove:
       - nano-default-editor
-      - gnome-terminal
-      - gnome-terminal-nautilus
+      #- gnome-terminal    # not installed in Fedora 41
+      #- gnome-terminal-nautilus  # same as above.
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
