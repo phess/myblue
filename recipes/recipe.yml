@@ -24,6 +24,7 @@ modules:
       - at
       - btop
       - distrobox
+      - dutree
       - gnome-shell-extension-user-theme
       - gnome-tweaks
       - iptraf-ng
